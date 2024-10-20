@@ -1,0 +1,12 @@
+name: Main Workflow
+
+on: [push, pull_request]
+
+jobs:
+  call-reusable-workflow:
+    uses: jtgober/reusable-flows/.github/workflows/reusable-flow.yml@main
+    with:
+      node-version: '16.x'
+      npm-install-command: 'ci'
+      run-playwright: true
+      upload-artifact: true  # This will prevent the artifact from being uploaded
