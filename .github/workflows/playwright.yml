@@ -1,12 +1,28 @@
-name: Main Workflow
+name: Playwright Test
 
-on: [push, pull_request]
-
+on:
+  push:
+    branches: [main.master]
+  pull_request:
+    branches: [main, master]
 jobs:
-  call-reusable-workflow:
-    uses: jtgober/reusable-flows/.github/workflows/reusable-flow.yml@main
-    with:
-      node-version: '16.x'
-      npm-install-command: 'ci'
-      run-playwright: true
-      upload-artifact: true  # This will prevent the artifact from being uploaded
+  test:
+    timeout-miutes: 60
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions/setup-node@v3
+        with:
+          node-version: 16
+      - name: Install Dependencies
+        run: npm ci
+      - name: install Playwright Browsers
+        run: npx playwright install --with-deps
+      - name: Run Playwright Test
+        run: npx playwright test
+      - uses: action/upload-artifact@v3
+        if: always()
+        with:
+          name: playwright-report
+          path: playwright-report/
+          retention-days: 30
