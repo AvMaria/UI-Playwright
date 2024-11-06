@@ -28,7 +28,7 @@ test.describe.parallel("suite", () => {
     await sampleAppPage.fillUsernameField("invalidUsername");
     await sampleAppPage.fillPasswordField(password);
     await sampleAppPage.clickLoginOrLogoutButton();
-    await sampleAppPage.expectedLoginTextToBe("Invalid username/password");
+    await sampleAppPage.expectedLoginTextToBe("Welcome, invalidUsername!");
   });
 
   test("log out test", async ({ page }) => {
