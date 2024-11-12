@@ -6,16 +6,16 @@ Java Script project for test automation, covering UI acceptance testing. Created
 
 ## Concepts Included
 
-Parallel test runs
-Page Object Model Design Pattern
-Github CI/CD Implementation
+-Parallel test runs
+-Page Object Model Design Pattern
+-Github CI/CD Implementation
 
 ## Installation
 
-Things you neeed:
-Node.js
-Check your version
-npm -v
-node -v
-intall Playwright = npm init playwright@latest
-run test example= npx playwright test
+*Things you neeed:
+-Node.js
+*Check your version
+-npm -v
+-node -v
+-intall Playwright = npm init playwright@latest
+-run test example= npx playwright test
